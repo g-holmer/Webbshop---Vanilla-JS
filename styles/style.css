@@ -12,6 +12,13 @@ body {
   margin: 0;
 }
 
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center center;
+}
+
 .products__wrapper {
   display: -ms-grid;
   display: grid;
