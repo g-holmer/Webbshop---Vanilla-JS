@@ -26,9 +26,12 @@ $(document).ready(function() {
       imgElement.className = "product__image"
 
       //Product Name
-      const prodNameWrapper = document.createElement("span")
+      const prodNameWrapper = document.createElement("div")
+      const prodNameFont = document.createElement("h4")
       prodNameWrapper.className = "product__name"
+      prodNameFont.className = "product__name__font"
       mainProduct.appendChild(prodNameWrapper)
+      prodNameWrapper.appendChild(prodNameFont)
 
       //input btns
       const inputBtnWrapper = document.createElement("div")
@@ -56,7 +59,7 @@ $(document).ready(function() {
 
     //  FILL CONTENT FROM API
     const imageDiv = document.querySelectorAll(".product__image")
-    const nameDiv = document.querySelectorAll(".product__name")
+    const nameDiv = document.querySelectorAll(".product__name__font")
     const priceDiv = document.querySelectorAll(".product__price")
 
     //FILL NAMES
