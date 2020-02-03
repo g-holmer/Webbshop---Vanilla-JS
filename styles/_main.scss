@@ -9,7 +9,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
-    background: lightgray;
+    background: rgb(211, 209, 209);
 }
 img {
     width: 100%;
