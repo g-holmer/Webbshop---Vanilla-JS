@@ -1,148 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="styles/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="styles/style.css" />
     <title>Document</title>
-</head>
-<body>
-<header class="main__header">
-<h1>SHOP</h1>
-<nav>
-<div class="cart__btn">
-<span class="cart__btn__num-bg">
-1<!-- text content ändrar nummer -->
-</span>
-</div>
-</nav>
-</header>
-<div class="main__cart">
-<div class="products__info">
-    <div class="products__info__img">
-    <img src="" alt="" srcset="">
+  </head>
+  <body>
+    <header class="main__header">
+      <h1>SHOP</h1>
+      <nav>
+        <div class="cart__btn">
+          <span class="cart__btn__num-bg">
+            1<!-- text content ändrar nummer -->
+          </span>
+        </div>
+      </nav>
+    </header>
+    <div class="main__cart">
+      <div class="products__info">
+        <div class="products__info__img">
+          <img src="" alt="" srcset="" />
+        </div>
+        <div class="products__info__productname">
+          <h3>Produktnamn</h3>
+        </div>
+        <div class="products__info__sum">
+          Summa
+        </div>
+        <div class="products__info__qty">
+          Antal
+        </div>
+        <div class="products__finish">
+          <span>Totalsumma: (summa)</span>
+          <button>Till kassan</button>
+        </div>
+      </div>
     </div>
-    <div class="products__info__productname">
-        <h3>Produktnamn</h3>
-    </div>
-    <div class="products__info__sum">
-        Summa
-    </div>
-    <div class="products__info__qty">
-        Antal
-    </div>
-    <div class="products__finish">
-        <span>Totalsumma: (summa)</span>
-        <button>Till kassan</button>
-    </div>
-</div>
-</div>
-<div class="products__wrapper">
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
-<script>
-$(document).ready(function() {
-    //fetch api
-    const url = 'products.json';
-    $.getJSON(url, function(response) {
-        let prodItems = [];
-        response.forEach(car => {
+    <div class="products__wrapper"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        //fetch api
+        const url = "products.json";
+        $.getJSON(url, function(response) {
+          let prodItems = [];
+          response.forEach(car => {
             prodItems.push(car);
+          });
+
+          //create HTML structure
+          for (let i = 1; i <= prodItems.length; i++) {
+            const productsWrapper = document.querySelector(
+              ".products__wrapper"
+            );
+            const mainProduct = document.createElement("div");
+            mainProduct.className = "products " + "product-" + i;
+            productsWrapper.appendChild(mainProduct);
+
+            //IMG
+            const imageWrapper = document.createElement("div");
+            imageWrapper.className = "image__div";
+            mainProduct.appendChild(imageWrapper);
+
+            const imgElement = document.createElement("img");
+            imageWrapper.appendChild(imgElement);
+            imgElement.src = "";
+
+            imgElement.className = "product__image";
+
+            //Product Name
+            const prodNameWrapper = document.createElement("span");
+            prodNameWrapper.className = "product__name";
+            mainProduct.appendChild(prodNameWrapper);
+
+            //input btns
+            const inputBtnWrapper = document.createElement("div");
+            inputBtnWrapper.className = "input__buttons-wrapper";
+            mainProduct.appendChild(inputBtnWrapper);
+
+            const selectTag = document.createElement("select");
+            inputBtnWrapper.appendChild(selectTag);
+
+            const option = document.createElement("option");
+            selectTag.appendChild(option);
+            option.value = "1";
+
+            //Product price
+            const prodPriceWrapper = document.createElement("span");
+            prodPriceWrapper.className = "product__price";
+            mainProduct.appendChild(prodPriceWrapper);
+
+            //button
+            const btn = document.createElement("button");
+            btn.className = "btn";
+            btn.textContent = "Add to cart";
+            mainProduct.appendChild(btn);
+          }
+
+          //  FILL CONTENT FROM API
+          const imageDiv = document.querySelectorAll(".product__image");
+          const nameDiv = document.querySelectorAll(".product__name");
+          const priceDiv = document.querySelectorAll(".product__price");
+
+          //FILL NAMES
+          for (let i = 0; i < prodItems.length; i++) {
+            for (let i = 0; i < nameDiv.length; i++) {
+              nameDiv[i].textContent = prodItems[i].name;
+            }
+          }
+
+          //FILL PRICES
+          for (let i = 0; i < prodItems.length; i++) {
+            for (let i = 0; i < priceDiv.length; i++) {
+              priceDiv[i].textContent = prodItems[i].price;
+            }
+          }
+          //FILL IMAGES
+          for (let i = 0; i < prodItems.length; i++) {
+            for (let i = 0; i < imageDiv.length; i++) {
+              imageDiv[i].src = prodItems[i].image;
+            }
+          }
         });
-
-            //create HTML structure
-for (var i = 1; i <= prodItems.length; i++){
-    const productsWrapper = document.querySelector('.products__wrapper')             
-    const mainProduct = document.createElement('div');     
-    mainProduct.className = 'products ' + 'product-' + i;        
-    productsWrapper.appendChild(mainProduct)      
-
-    //IMG
-    const imageWrapper = document.createElement('div');  
-    imageWrapper.className = 'image__div';        
-    mainProduct.appendChild(imageWrapper)
-    
-
-    const imgElement = document.createElement('img');  
-    imageWrapper.appendChild(imgElement)
-    imgElement.src = ''
-
-    imgElement.className = 'product__image';        
-
-    //Product Name
-    const prodNameWrapper = document.createElement('span');  
-    prodNameWrapper.className = 'product__name';        
-    mainProduct.appendChild(prodNameWrapper)
-
-    //input btns
-    const inputBtnWrapper = document.createElement('div');  
-    inputBtnWrapper.className = 'input__buttons-wrapper';        
-    mainProduct.appendChild(inputBtnWrapper)
-
-    const selectTag = document.createElement('select');  
-    inputBtnWrapper.appendChild(selectTag)
-
-    const option = document.createElement('option');  
-    selectTag.appendChild(option)
-    option.value = '1';
-
-    //Product price
-    const prodPriceWrapper = document.createElement('span');  
-    prodPriceWrapper.className = 'product__price';        
-    mainProduct.appendChild(prodPriceWrapper)
-
-    //button
-    const btn = document.createElement('button');  
-    btn.className = 'btn';     
-    btn.textContent = 'Add to cart';       
-    mainProduct.appendChild(btn)
-}
-
-
-
-
-//  FILL CONTENT FROM API
-    const imageDiv = document.querySelectorAll('.product__image');
-    const nameDiv = document.querySelectorAll('.product__name');
-    const priceDiv = document.querySelectorAll('.product__price');
-
-    
-    //FILL NAMES
-   for (var i = 0; i < prodItems.length; i++){
-        for (var i = 0; i < nameDiv.length; i++){
-        nameDiv[i].textContent = prodItems[i].name;
-        
-    }
-    }
-
-    //FILL PRICES
-    for (var i = 0; i < prodItems.length; i++){
-        for (var i = 0; i < priceDiv.length; i++){
-            priceDiv[i].textContent = prodItems[i].price;
-        
-    }
-    }
-        //FILL IMAGES
-        for (var i = 0; i < prodItems.length; i++){
-        for (var i = 0; i < imageDiv.length; i++){
-        imageDiv[i].src = prodItems[i].image;
-    }
-    }
-    });
-
-
-
-
-
-
-
-
-
-
-
-});
-
-</script>
-</body>
+      });
+    </script>
+  </body>
 </html>
