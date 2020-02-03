@@ -1,22 +1,22 @@
 [{
 	"name": "Audi A6",
-	"price": "199",
+	"price": "199$",
 	"image": "http://source.unsplash.com/500x300/?Audi"
 },{
 	"name": "Volvo",
-	"price": "299",
+	"price": "299$",
 	"image": "http://source.unsplash.com/500x300/?Volvo"
 },{
 	"name": "Bmw",
-	"price": "399",
+	"price": "399$",
 	"image": "http://source.unsplash.com/500x300/?BMW"
 },{
 	"name": "SAAB",
-	"price": "119",
+	"price": "119$",
 	"image": "http://source.unsplash.com/500x300/?saab"
 },{
 	"name": "Renault",
-	"price": "421",
+	"price": "421$",
 	"image": "http://source.unsplash.com/500x300/?renault"
 },{
 	"name": "Fiat",
@@ -24,10 +24,10 @@
 	"image": "http://source.unsplash.com/500x300/?fiat"
 },{
 	"name": "Volkswagen",
-	"price": "399",
+	"price": "399$",
 	"image": "http://source.unsplash.com/500x300/?volkswagen"
 },{
 	"name": "Corvette",
-	"price": "9899",
+	"price": "9899$",
 	"image": "http://source.unsplash.com/500x300/?corvette"
 }]
