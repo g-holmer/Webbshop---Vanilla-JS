@@ -3,3 +3,28 @@
     display: flex;
     justify-content: space-between;
 }
+.nav {
+    display: flex;
+    place-items: center center;
+}
+.cart__btn {
+    display: flex;
+    flex-direction: column;
+    place-content: center center;
+    background: url('https://cdn.onlinewebfonts.com/svg/img_170793.png') no-repeat center center;
+    background-size: cover;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    &__num-bg {
+        //display: none; JS ändrar detta för att ta fram och bort knappen
+        display: flex;
+        justify-content: center;
+        color: white;
+        opacity: 80%;
+        background: darkblue;
+        width: 60%;
+        height: 60%;
+        border-radius: 30px;
+    }
+}

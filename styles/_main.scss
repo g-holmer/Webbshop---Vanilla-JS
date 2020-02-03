@@ -1,66 +1,9 @@
 body {
     margin: 0;
 }
-.nav {
-    display: flex;
-    place-items: center center;
-}
-.products__wrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(400px, 1fr));
-    background: rgb(211, 209, 209);
-}
+
 img {
     width: 100%;
     height: 100%;
     object-fit: cover;  
-}
-.cart__btn {
-    display: flex;
-    flex-direction: column;
-    place-content: center center;
-    background: url('https://cdn.onlinewebfonts.com/svg/img_170793.png') no-repeat center center;
-    background-size: cover;
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-    &__num-bg {
-        //display: none; JS ändrar detta för att ta fram och bort knappen
-        display: flex;
-        justify-content: center;
-        color: white;
-        opacity: 80%;
-        background: darkblue;
-        width: 60%;
-        height: 60%;
-        border-radius: 30px;
-    }
-}
-.main__cart {
-    display: none;
-    flex-direction: column;
-}
-.products {
-    padding: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    .btn {
-        max-width: 60px;
-    }
-    select {
-        max-width: 60px;
-    }
-    &__info {
-        border: 1px solid black;
-        padding: 50px;
-        position: absolute;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
-        right: 0;
-        top: 100px;
-        background: gray;
-    }
 }

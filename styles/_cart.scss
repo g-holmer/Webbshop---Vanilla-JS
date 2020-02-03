@@ -1,0 +1,15 @@
+.main__cart {
+    display: none;
+    flex-direction: column;
+}
+.products__info {
+    border: 1px solid black;
+    padding: 50px;
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+    right: 0;
+    top: 100px;
+    background: gray;
+}
