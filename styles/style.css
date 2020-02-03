@@ -22,10 +22,10 @@ body {
 .products__wrapper {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(100px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  -ms-grid-rows: (minmax(100px, 1fr))[auto-fit];
-      grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+  -ms-grid-columns: (minmax(400px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  -ms-grid-rows: (minmax(400px, 1fr))[auto-fit];
+      grid-template-rows: repeat(auto-fit, minmax(400px, 1fr));
   background: #d3d1d1;
 }
 
