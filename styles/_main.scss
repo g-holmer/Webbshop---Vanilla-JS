@@ -1,6 +1,7 @@
 body {
     margin: 0;
 }
+
 .products__wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
