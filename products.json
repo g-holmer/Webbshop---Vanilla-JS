@@ -1,0 +1,17 @@
+[{
+	"name": "Audi A6",
+	"price": "199",
+	"image": "http://source.unsplash.com/500x300/?lasagne"
+},{
+	"name": "Volvo",
+	"price": "299",
+	"image": "http://source.unsplash.com/500x300/?Volvo"
+},{
+	"name": "Bmw",
+	"price": "399",
+	"image": "http://source.unsplash.com/500x300/?BMW"
+},{
+	"name": "Ford",
+	"price": "499",
+	"image": "http://source.unsplash.com/500x300/?ford"
+}]
