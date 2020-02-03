@@ -11,7 +11,23 @@
 	"price": "399",
 	"image": "http://source.unsplash.com/500x300/?BMW"
 },{
-	"name": "Ford",
-	"price": "499",
-	"image": "http://source.unsplash.com/500x300/?ford"
+	"name": "SAAB",
+	"price": "119",
+	"image": "http://source.unsplash.com/500x300/?saab"
+},{
+	"name": "Renault",
+	"price": "421",
+	"image": "http://source.unsplash.com/500x300/?renault"
+},{
+	"name": "Fiat",
+	"price": "799",
+	"image": "http://source.unsplash.com/500x300/?fiat"
+},{
+	"name": "Volkswagen",
+	"price": "399",
+	"image": "http://source.unsplash.com/500x300/?volkswagen"
+},{
+	"name": "Corvette",
+	"price": "9899",
+	"image": "http://source.unsplash.com/500x300/?corvette"
 }]
