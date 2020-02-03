@@ -60,15 +60,22 @@ img {
 .products__wrapper {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(400px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  -ms-grid-rows: (minmax(400px, 1fr))[auto-fit];
-      grid-template-rows: repeat(auto-fit, minmax(400px, 1fr));
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  -ms-grid-rows: (minmax(300px, 1fr))[auto-fit];
+      grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
   background: #d3d1d1;
 }
 
+@media (min-width: 600px) {
+  .products__wrapper {
+    -ms-grid-columns: (minmax(340px, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  }
+}
+
 .products {
-  padding: 50px;
+  margin: 1.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
