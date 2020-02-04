@@ -3,10 +3,13 @@
     display: flex;
     justify-content: space-between;
 }
+
+// test
 .nav {
     display: flex;
     place-items: center center;
 }
+
 .cart__btn {
     display: flex;
     flex-direction: column;
@@ -16,6 +19,7 @@
     cursor: pointer;
     width: 30px;
     height: 30px;
+
     &__num-bg {
         //display: none; JS ändrar detta för att ta fram och bort knappen
         display: flex;
