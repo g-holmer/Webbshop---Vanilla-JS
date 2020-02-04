@@ -67,16 +67,16 @@ $(document).ready(function() {
       for (let i = 0; i < nameDiv.length; i++) {
         nameDiv[i].textContent = prodItems[i].name
       }
-    }
+    
 
     //FILL PRICES
-    for (let i = 0; i < prodItems.length; i++) {
+
       for (let i = 0; i < priceDiv.length; i++) {
         priceDiv[i].textContent = prodItems[i].price
       }
-    }
+
     //FILL IMAGES
-    for (let i = 0; i < prodItems.length; i++) {
+
       for (let i = 0; i < imageDiv.length; i++) {
         imageDiv[i].src = prodItems[i].image
       }
