@@ -104,6 +104,8 @@ img {
 }
 
 .main__cart {
+  position: absolute;
+  background: gray;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -111,21 +113,19 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  right: 0;
+  top: 100px;
 }
 
 .products__info {
   border: 1px solid black;
   padding: 50px;
-  position: absolute;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (minmax(100px, 1fr))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   -ms-grid-rows: (minmax(100px, 1fr))[auto-fit];
       grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
-  right: 0;
-  top: 100px;
-  background: gray;
 }
 
 .product__name__font {
