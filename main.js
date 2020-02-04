@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
   //fetch api
   const url = "products.json"
   $.getJSON(url, function(response) {
