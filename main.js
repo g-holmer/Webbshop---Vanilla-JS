@@ -1,12 +1,23 @@
 $(document).ready(function() {
 
-  //fetch api
+  /*
+  //getJSON
   const url = "products.json"
   $.getJSON(url, function(response) {
     let prodItems = []
     response.forEach(car => {
       prodItems.push(car)
     })
+*/
+    //FETCH
+    fetch("products.json")
+    .then(response => response.json())
+    .then(data => showProducts(data))
+    .catch(err => console.log(err))
+
+    function showProducts(prodItems) {
+
+    
 
     //create HTML structure
     for (let i = 1; i <= prodItems.length; i++) {
@@ -26,18 +37,30 @@ $(document).ready(function() {
 
       imgElement.className = "product__image"
 
+      //product info wrapper
+      const prodInfoWrapper = document.createElement("div")
+      mainProduct.appendChild(prodInfoWrapper)
+      prodInfoWrapper.className = "prod__info__wrapper"
+            //product info top
+            const prodInfoWrapperTop = document.createElement("div")
+            prodInfoWrapper.appendChild(prodInfoWrapperTop)
+            prodInfoWrapperTop.className = "prod__info__wrapper__top"
+            //product info bottom
+            const prodInfoWrapperBottom = document.createElement("div")
+            prodInfoWrapper.appendChild(prodInfoWrapperBottom)
+            prodInfoWrapperBottom.className = "prod__info__wrapper__bottom"
       //Product Name
       const prodNameWrapper = document.createElement("div")
       const prodNameFont = document.createElement("h4")
       prodNameWrapper.className = "product__name"
       prodNameFont.className = "product__name__font"
-      mainProduct.appendChild(prodNameWrapper)
+      prodInfoWrapperTop.appendChild(prodNameWrapper)
       prodNameWrapper.appendChild(prodNameFont)
 
       //input btns
       const inputBtnWrapper = document.createElement("div")
       inputBtnWrapper.className = "input__buttons-wrapper"
-      mainProduct.appendChild(inputBtnWrapper)
+      prodInfoWrapperBottom.appendChild(inputBtnWrapper)
 
       const selectTag = document.createElement("select")
       inputBtnWrapper.appendChild(selectTag)
@@ -49,13 +72,13 @@ $(document).ready(function() {
       //Product price
       const prodPriceWrapper = document.createElement("span")
       prodPriceWrapper.className = "product__price"
-      mainProduct.appendChild(prodPriceWrapper)
+      prodInfoWrapperBottom.appendChild(prodPriceWrapper)
 
       //button
       const btn = document.createElement("button")
       btn.className = "btn"
       btn.textContent = "Add to cart"
-      mainProduct.appendChild(btn)
+      prodInfoWrapperBottom.appendChild(btn)
     }
 
     //  FILL CONTENT FROM API
@@ -82,5 +105,9 @@ $(document).ready(function() {
         imageDiv[i].src = prodItems[i].image
       }
     }
+    
+         createCartList();
+    
+    }
   })
-})
+//})
