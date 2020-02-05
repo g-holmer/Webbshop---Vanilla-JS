@@ -1,10 +1,12 @@
 showCart();
-let prodArray = [];
+writeCartList();
+
 
 function createCartList() {
   const buttons = document.querySelectorAll(".btn");
   buttons.forEach(button => {
     let cartBtnNum = 0;
+    let prodArray = [];
     button.addEventListener("click", function(evt) {
       const getName = button.parentElement.previousSibling.firstChild.firstChild.textContent;
       const getImg = button.parentElement.parentElement.previousSibling.firstChild.src;
@@ -25,8 +27,6 @@ function createCartList() {
       prodArray.push(myObject);
 
       localStorage.setItem("myObject", JSON.stringify(prodArray));
-      
-      let getArray = JSON.parse(localStorage.getItem("myObject"));
 
 
 
@@ -47,13 +47,13 @@ function createCartList() {
       cartButton.textContent = cartBtnNum;
 
       //WRITE CART LIST
-      writeCartList(getArray);
+      writeCartList();
     });
   });
 }
-function writeCartList(getArray) {
+function writeCartList() {
 
-  
+  let getArray = JSON.parse(localStorage.getItem("myObject"));
   const mainCart = document.querySelector('.main__cart');
   const productInfo = document.createElement('div');
   for (let i = 1; i <= getArray.length; i++) {

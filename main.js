@@ -116,4 +116,4 @@ function fillHtmlStructure(prodItems) {
       imageDiv[i].src = prodItems[i].image;
     }
   }
-}
+} 
