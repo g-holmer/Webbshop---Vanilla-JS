@@ -1,15 +1,35 @@
 .main__cart {
+    padding: 30px;
+    border: 1px solid rgb(182, 182, 182);
     position: absolute;
-    background: gray;
+    background: rgb(245, 245, 245);
     display: none;
     flex-direction: column;
     right: 0;
     top: 100px;
+    gap: 100px;
+    h2 {
+        text-align:center;
+    }
 }
 .products__info {
-    border: 1px solid black;
-    padding: 50px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+    grid-auto-flow: column;
+    grid-gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    &__productname {
+        order: 1;
+        display: flex;
+        align-items: center;
+    }
+    &__qty {
+        display: flex;
+        align-items: center;
+        order: 2;
+    }
+    &__sum {
+        display: flex;
+        align-items: center;
+        order: 3;
+    }
 }
