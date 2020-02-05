@@ -42,9 +42,10 @@ function createCartList() {
 function writeCartList() {
 
   let getArray = JSON.parse(localStorage.getItem("myObject"));
-  const mainCart = document.querySelector('.main__cart');
-  const productInfo = document.createElement('div');
+
   for (let i = 1; i <= getArray.length; i++) {
+    const mainCart = document.querySelector('.main__cart');
+    const productInfo = document.createElement('div');
     //main product info cart
     productInfo.className = "products__info " + "product-" + i;
     mainCart.appendChild(productInfo)
