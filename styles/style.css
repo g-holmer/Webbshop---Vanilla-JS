@@ -178,8 +178,8 @@ img {
   display: grid;
   grid-auto-flow: column;
   grid-gap: 30px;
-  -ms-grid-columns: (minmax(200px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  -ms-grid-columns: (minmax(150px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 }
 
 .products__info__productname {
