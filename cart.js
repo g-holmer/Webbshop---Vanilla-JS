@@ -6,15 +6,15 @@ function showCart() {
   let getArray = JSON.parse(localStorage.getItem("myObject"));
   const cartBtn = document.querySelector(".cart__btn");
   const cartWindow = document.querySelector(".main__cart");
-  const clearBtn = document.createElement("button")
-  clearBtn.textContent = "rensa"
-  cartWindow.append(clearBtn)
+  const clearBtn = document.createElement("button");
+  clearBtn.textContent = "rensa";
+  cartWindow.append(clearBtn);
   clearBtn.addEventListener("click", function() {
-    localStorage.clear()
-  if (getArray === null) return
-    getArray.pop()
-    getArray.shift()
-  })
+    localStorage.clear();
+    if (getArray === null) return;
+    getArray.pop();
+    getArray.shift();
+  });
   cartBtn.addEventListener("click", function() {
     if (cartWindow.style.display === "none") {
       cartWindow.style.display = "flex";
@@ -52,15 +52,15 @@ function createCartList() {
       };
       let getArray;
       if (localStorage.getItem("myObject") === null) {
-        let prodArray = []
-        prodArray.push(myObject)
-        localStorage.setItem("myObject", JSON.stringify(prodArray))
+        let prodArray = [];
+        prodArray.push(myObject);
+        localStorage.setItem("myObject", JSON.stringify(prodArray));
       } else {
-        getArray = JSON.parse(localStorage.getItem("myObject"))
-        getArray.push(myObject)
-        localStorage.setItem("myObject", JSON.stringify(getArray))
+        getArray = JSON.parse(localStorage.getItem("myObject"));
+        getArray.push(myObject);
+        localStorage.setItem("myObject", JSON.stringify(getArray));
       }
-      getArray = JSON.parse(localStorage.getItem("myObject"))
+      getArray = JSON.parse(localStorage.getItem("myObject"));
 
       //ADD NUMBER TO CART BUTTON
       const cartButton = document.querySelector(".cart__btn__num-bg");
@@ -72,9 +72,10 @@ function createCartList() {
     });
   });
 }
+
 function refreshCartList() {
   let getArray = JSON.parse(localStorage.getItem("myObject"));
-
+  let fromButton = false;
   for (let i = 1; i <= getArray.length; i++) {
     const mainCart = document.querySelector(".main__cart");
     const productInfo = document.createElement("div");
@@ -113,26 +114,11 @@ function refreshCartList() {
     prodFinish.className = 'products__finish';
     productInfo.appendChild(prodFinish)
   */
-  refreshFillCartList(getArray);
+  fillCartList(getArray, fromButton);
 }
-function refreshFillCartList(getArray) {
-  const infoImageDiv = document.querySelectorAll(".product_info_image");
-  const infoNameDiv = document.querySelectorAll(".products__info__productname");
-  const infoPriceDiv = document.querySelectorAll(".products__info__sum");
-  const infoQty = document.querySelectorAll(".products__info__qty");
 
-  //HÄR SKA DE HÄNDA NÅGOT
-
-  //FILL NAMES
-
-  for (let i = 0; i < getArray.length; i++) {
-    infoNameDiv[i].textContent = getArray[i].name;
-    infoImageDiv[i].src = getArray[i].img;
-    infoPriceDiv[i].textContent = getArray[i].price;
-    infoQty[i].textContent = getArray[i].qty;
-  }
-}
 function writeCartList() {
+  let fromButton = true;
   let getArray = JSON.parse(localStorage.getItem("myObject"));
   const mainCart = document.querySelector(".main__cart");
   const productInfo = document.createElement("div");
@@ -173,9 +159,9 @@ function writeCartList() {
     prodFinish.className = 'products__finish';
     productInfo.appendChild(prodFinish)
   */
-  fillCartList(getArray);
+  fillCartList(getArray, fromButton);
 }
-function fillCartList(getArray) {
+function fillCartList(getArray, fromButton) {
   const infoNameDiv = document.querySelectorAll(".products__info__productname");
   const infoImageDiv = document.querySelectorAll(".product_info_image");
   const infoPriceDiv = document.querySelectorAll(".products__info__sum");
@@ -185,13 +171,21 @@ function fillCartList(getArray) {
 
   //FILL NAMES
 
-  for (let index = 0; index < getArray.length; index++) {
-    const lastItem = getArray.length - 1;
+  if (fromButton) {
+    for (let index = 0; index < getArray.length; index++) {
+      const lastItem = getArray.length - 1;
 
-    infoNameDiv[lastItem].textContent = getArray[lastItem].name;
-    infoImageDiv[lastItem].src = getArray[lastItem].img;
-    infoPriceDiv[lastItem].textContent = getArray[lastItem].price;
-    infoQty[lastItem].textContent = getArray[lastItem].qty;
+      infoNameDiv[lastItem].textContent = getArray[lastItem].name;
+      infoImageDiv[lastItem].src = getArray[lastItem].img;
+      infoPriceDiv[lastItem].textContent = getArray[lastItem].price;
+      infoQty[lastItem].textContent = getArray[lastItem].qty;
+    }
+  } else {
+    for (let i = 0; i < getArray.length; i++) {
+      infoNameDiv[i].textContent = getArray[i].name;
+      infoImageDiv[i].src = getArray[i].img;
+      infoPriceDiv[i].textContent = getArray[i].price;
+      infoQty[i].textContent = getArray[i].qty;
+    }
   }
 }
-
