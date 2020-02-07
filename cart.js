@@ -80,6 +80,7 @@ function refreshCartList() {
     const productInfo = document.createElement("div");
     //main product info cart
     productInfo.className = "products__info " + "product-" + i;
+    productInfo.id = getArray.length-1;
     mainCart.appendChild(productInfo);
 
     const infoImgContainer = document.createElement("div");
@@ -136,6 +137,7 @@ function writeCartList() {
   for (let i = 1; i <= getArray.length; i++) {
     //main product info cart
     productInfo.className = "products__info " + "product-" + getArray.length;
+    productInfo.id = getArray.length-1;
     mainCart.appendChild(productInfo);
   }
 
@@ -216,8 +218,19 @@ function deleteItemsFromCart(getArray) {
   const delBtns = document.querySelectorAll(".products__info__delBtn");
 delBtns.forEach(delBtn => {
   delBtn.addEventListener("click", function(evt) {
-    
+    var storedNames = JSON.parse(localStorage.getItem("keyName"));
+
+    // here you need to make a loop to find the index of item to delete
+    var indexToRemove = 1;
+
+    //remove item selected, second parameter is the number of items to delete 
+    storedNames.slice(indexToRemove, 1);
+
+   // Put the object into storage
+   localStorage.setItem('keyName', JSON.stringify(storedNames));
+   
     delBtn.parentElement.parentElement.remove();
+    localStorage.removeItem(keyName);
   });
 });
 }
