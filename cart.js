@@ -217,9 +217,9 @@ function fillCartList(getArray, fromButton) {
       infoQty[i].textContent = getArray[i].qty;
     }
   }
-  deleteItemsFromCart(getArray);
+  deleteItemsFromCart();
 }
-function deleteItemsFromCart(getArray) {
+function deleteItemsFromCart() {
   const delBtns = document.querySelectorAll(".products__info__delBtn");
   delBtns.forEach(delBtn => {
     delBtn.addEventListener("click", function(evt) {
@@ -227,7 +227,7 @@ function deleteItemsFromCart(getArray) {
       
         const indexToRemove = delBtn.parentElement.parentElement.id;
         parsedArray.splice(indexToRemove, indexToRemove+1);
-        
+
       delBtn.parentElement.parentElement.remove();
       localStorage.setItem("myObject", JSON.stringify(parsedArray));
     });
