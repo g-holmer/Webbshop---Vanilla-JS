@@ -45,9 +45,9 @@ function createCartList() {
         button.parentElement.parentElement.previousSibling.firstChild.src;
       const getPrice = button.previousSibling.firstChild.textContent;
       const getQty = button.previousSibling.previousSibling.firstChild.value;
-    //  id += 1;
+      //  id += 1;
       const myObject = {
-      //  id: id,
+        //  id: id,
         name: getName,
         img: getImg,
         price: getPrice,
@@ -221,15 +221,18 @@ function fillCartList(getArray, fromButton) {
 }
 function deleteItemsFromCart() {
   const delBtns = document.querySelectorAll(".products__info__delBtn");
+  let parsedArray = JSON.parse(localStorage.getItem("myObject"));
   delBtns.forEach(delBtn => {
     delBtn.addEventListener("click", function(evt) {
-      let parsedArray = JSON.parse(localStorage.getItem("myObject"));
-      
-        const indexToRemove = delBtn.parentElement.parentElement.id;
-        parsedArray.splice(indexToRemove, indexToRemove+1);
+      const indexToRemove = delBtn.parentElement.parentElement.id;
 
+
+      parsedArray.splice(indexToRemove, 1);
       delBtn.parentElement.parentElement.remove();
       localStorage.setItem("myObject", JSON.stringify(parsedArray));
+
+      const cartButton = document.querySelector(".cart__btn__num-bg");
+      cartButton.textContent = parsedArray.length;
     });
   });
 }
