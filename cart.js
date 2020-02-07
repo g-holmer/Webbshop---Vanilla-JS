@@ -38,8 +38,10 @@ function createCartList() {
   const buttons = document.querySelectorAll(".btn");
   buttons.forEach(button => {
     button.addEventListener("click", function(evt) {
-      const getName = button.parentElement.previousSibling.firstChild.firstChild.textContent;
-      const getImg = button.parentElement.parentElement.previousSibling.firstChild.src;
+      const getName =
+        button.parentElement.previousSibling.firstChild.firstChild.textContent;
+      const getImg =
+        button.parentElement.parentElement.previousSibling.firstChild.src;
       const getPrice = button.previousSibling.firstChild.textContent;
       const getQty = button.previousSibling.previousSibling.firstChild.value;
       const myObject = {
@@ -80,7 +82,7 @@ function refreshCartList() {
     const productInfo = document.createElement("div");
     //main product info cart
     productInfo.className = "products__info " + "product-" + i;
-    productInfo.id = getArray.length-1;
+    productInfo.id = getArray.length - 1;
     mainCart.appendChild(productInfo);
 
     const infoImgContainer = document.createElement("div");
@@ -101,7 +103,7 @@ function refreshCartList() {
     const infoSum = document.createElement("div");
     infoSum.className = "products__info__sum";
     productInfo.appendChild(infoSum);
-    
+
     const del = document.createElement("div");
     productInfo.appendChild(del);
     del.className = "products__info__del";
@@ -137,7 +139,7 @@ function writeCartList() {
   for (let i = 1; i <= getArray.length; i++) {
     //main product info cart
     productInfo.className = "products__info " + "product-" + getArray.length;
-    productInfo.id = getArray.length-1;
+    productInfo.id = getArray.length - 1;
     mainCart.appendChild(productInfo);
   }
 
@@ -216,22 +218,15 @@ function fillCartList(getArray, fromButton) {
 }
 function deleteItemsFromCart(getArray) {
   const delBtns = document.querySelectorAll(".products__info__delBtn");
-delBtns.forEach(delBtn => {
-  delBtn.addEventListener("click", function(evt) {
-    var storedItems = JSON.parse(localStorage.getItem("myObject"));
+  delBtns.forEach(delBtn => {
+    delBtn.addEventListener("click", function(evt) {
+      var storedItems = JSON.parse(localStorage.getItem("myObject"));
+      var indexToRemove = delBtn.parentElement.parentElement.id;
+      console.log("index: " + indexToRemove);
+      storedItems.slice(indexToRemove, indexToRemove + 1);
+      console.log(storedItems);
 
-    // here you need to make a loop to find the index of item to delete
-    var indexToRemove = delBtn.parentElement.parentElement.id;
-    console.log(delBtn.parentElement.parentElement.id)
-
-    //remove item selected, second parameter is the number of items to delete 
-    storedItems.slice(indexToRemove, 1);
-
-   // Put the object into storage
-
-
-    delBtn.parentElement.parentElement.remove();
-    
+      delBtn.parentElement.parentElement.remove();
+    });
   });
-});
 }
