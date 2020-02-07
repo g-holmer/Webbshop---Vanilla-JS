@@ -178,14 +178,12 @@ img {
   display: grid;
   grid-auto-flow: column;
   grid-gap: 30px;
-  -ms-grid-columns: (minmax(150px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  -ms-grid-columns: (minmax(100px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-auto-rows: minmax(140px, 1fr);
 }
 
 .products__info__productname {
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -201,9 +199,6 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-ordinal-group: 3;
-      -ms-flex-order: 2;
-          order: 2;
 }
 
 .products__info__sum {
@@ -213,9 +208,56 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-ordinal-group: 4;
-      -ms-flex-order: 3;
-          order: 3;
+}
+
+.products__info__del {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.products__info__delBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 2em;
+  place-content: center center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 2em;
+  cursor: pointer;
+  z-index: 0;
+}
+
+.products__info__delBtn span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 1px;
+  background: black;
+  opacity: 1;
+  -webkit-transition: -webkit-transform .25s ease-in-out;
+  transition: -webkit-transform .25s ease-in-out;
+  transition: transform .25s ease-in-out;
+  transition: transform .25s ease-in-out, -webkit-transform .25s ease-in-out;
+}
+
+.products__info__delBtn span:nth-child(1) {
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+}
+
+.products__info__delBtn span:nth-child(2) {
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
 }
 
 .product__name__font {

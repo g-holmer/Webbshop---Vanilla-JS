@@ -33,6 +33,7 @@ function updateCartBtn() {
     cartButton.textContent = getArray.length;
   }
 }
+
 function createCartList() {
   const buttons = document.querySelectorAll(".btn");
   buttons.forEach(button => {
@@ -93,14 +94,25 @@ function refreshCartList() {
     const infoProductName = document.createElement("div");
     infoProductName.className = "products__info__productname";
     productInfo.appendChild(infoProductName);
-    //info sum
-    const infoSum = document.createElement("div");
-    infoSum.className = "products__info__sum";
-    productInfo.appendChild(infoSum);
     //info qty
     const infoQty = document.createElement("div");
     infoQty.className = "products__info__qty";
     productInfo.appendChild(infoQty);
+    //info sum
+    const infoSum = document.createElement("div");
+    infoSum.className = "products__info__sum";
+    productInfo.appendChild(infoSum);
+    
+    const del = document.createElement("div");
+    productInfo.appendChild(del);
+    del.className = "products__info__del";
+    const delBtn = document.createElement("div");
+    delBtn.className = "products__info__delBtn";
+    del.appendChild(delBtn);
+    const span1 = document.createElement("span");
+    delBtn.appendChild(span1);
+    const span2 = document.createElement("span");
+    delBtn.appendChild(span2);
   }
 
   /*    //total
@@ -147,6 +159,18 @@ function writeCartList() {
   const infoQty = document.createElement("div");
   infoQty.className = "products__info__qty";
   productInfo.appendChild(infoQty);
+  //info qty
+
+  const del = document.createElement("div");
+  productInfo.appendChild(del);
+  del.className = "products__info__del";
+  const delBtn = document.createElement("div");
+  delBtn.className = "products__info__delBtn";
+  del.appendChild(delBtn);
+  const span1 = document.createElement("span");
+  delBtn.appendChild(span1);
+  const span2 = document.createElement("span");
+  delBtn.appendChild(span2);
 
   /*    //total
     const prodFinish = document.createElement('div');
