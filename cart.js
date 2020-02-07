@@ -218,19 +218,20 @@ function deleteItemsFromCart(getArray) {
   const delBtns = document.querySelectorAll(".products__info__delBtn");
 delBtns.forEach(delBtn => {
   delBtn.addEventListener("click", function(evt) {
-    var storedNames = JSON.parse(localStorage.getItem("keyName"));
+    var storedItems = JSON.parse(localStorage.getItem("myObject"));
 
     // here you need to make a loop to find the index of item to delete
-    var indexToRemove = 1;
+    var indexToRemove = delBtn.parentElement.parentElement.id;
+    console.log(delBtn.parentElement.parentElement.id)
 
     //remove item selected, second parameter is the number of items to delete 
-    storedNames.slice(indexToRemove, 1);
+    storedItems.slice(indexToRemove, 1);
 
    // Put the object into storage
-   localStorage.setItem('keyName', JSON.stringify(storedNames));
-   
+
+
     delBtn.parentElement.parentElement.remove();
-    localStorage.removeItem(keyName);
+    
   });
 });
 }
