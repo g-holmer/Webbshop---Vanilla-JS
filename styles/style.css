@@ -178,8 +178,8 @@ img {
   display: grid;
   grid-auto-flow: column;
   grid-gap: 30px;
-  -ms-grid-columns: (minmax(100px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  -ms-grid-columns: (minmax(140px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   grid-auto-rows: minmax(140px, 1fr);
 }
 

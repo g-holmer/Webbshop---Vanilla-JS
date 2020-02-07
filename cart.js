@@ -38,19 +38,17 @@ function createCartList() {
   const buttons = document.querySelectorAll(".btn");
   buttons.forEach(button => {
     button.addEventListener("click", function(evt) {
-      const getName =
-        button.parentElement.previousSibling.firstChild.firstChild.textContent;
-      const getImg =
-        button.parentElement.parentElement.previousSibling.firstChild.src;
+      const getName = button.parentElement.previousSibling.firstChild.firstChild.textContent;
+      const getImg = button.parentElement.parentElement.previousSibling.firstChild.src;
       const getPrice = button.previousSibling.firstChild.textContent;
       const getQty = button.previousSibling.previousSibling.firstChild.value;
-
       const myObject = {
         name: getName,
         img: getImg,
         price: getPrice,
         qty: getQty
       };
+
       let getArray;
       if (localStorage.getItem("myObject") === null) {
         let prodArray = [];
@@ -212,4 +210,14 @@ function fillCartList(getArray, fromButton) {
       infoQty[i].textContent = getArray[i].qty;
     }
   }
+  deleteItemsFromCart(getArray);
+}
+function deleteItemsFromCart(getArray) {
+  const delBtns = document.querySelectorAll(".products__info__delBtn");
+delBtns.forEach(delBtn => {
+  delBtn.addEventListener("click", function(evt) {
+    
+    delBtn.parentElement.parentElement.remove();
+  });
+});
 }
