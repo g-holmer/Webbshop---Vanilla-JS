@@ -36,6 +36,7 @@ function updateCartBtn() {
 
 function createCartList() {
   const buttons = document.querySelectorAll(".btn");
+  //let id = 0;
   buttons.forEach(button => {
     button.addEventListener("click", function(evt) {
       const getName =
@@ -44,7 +45,9 @@ function createCartList() {
         button.parentElement.parentElement.previousSibling.firstChild.src;
       const getPrice = button.previousSibling.firstChild.textContent;
       const getQty = button.previousSibling.previousSibling.firstChild.value;
+    //  id += 1;
       const myObject = {
+      //  id: id,
         name: getName,
         img: getImg,
         price: getPrice,
@@ -220,13 +223,13 @@ function deleteItemsFromCart(getArray) {
   const delBtns = document.querySelectorAll(".products__info__delBtn");
   delBtns.forEach(delBtn => {
     delBtn.addEventListener("click", function(evt) {
-      var storedItems = JSON.parse(localStorage.getItem("myObject"));
-      var indexToRemove = delBtn.parentElement.parentElement.id;
-      console.log("index: " + indexToRemove);
-      storedItems.slice(indexToRemove, indexToRemove + 1);
-      console.log(storedItems);
-
+      let parsedArray = JSON.parse(localStorage.getItem("myObject"));
+      
+        const indexToRemove = delBtn.parentElement.parentElement.id;
+        parsedArray.splice(indexToRemove, indexToRemove+1);
+        
       delBtn.parentElement.parentElement.remove();
+      localStorage.setItem("myObject", JSON.stringify(parsedArray));
     });
   });
 }
