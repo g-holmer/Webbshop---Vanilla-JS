@@ -8,11 +8,24 @@
   right: 0;
   top: 100px;
   gap: 100px;
-  h2 {
+  h2, h3 {
     text-align: center;
+  }
+  &__finishproduct__btn {
+    width: 110px;
+  }
+  button {
+    display: flex;
+    align-self: flex-end;
+    max-width: 100px;
   }
 }
 .products__info {
+  display: flex;
+  flex-direction: column;
+}
+.cart {
+  margin: 30px;
   display: grid;
   grid-auto-flow: column;
   grid-gap: 30px;
