@@ -154,6 +154,46 @@ img {
           justify-content: center;
 }
 
+.finish-product {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #d3d1d1;
+}
+
+.order-confirmation {
+  border: 1px solid black;
+  -webkit-box-shadow: 0px 0px 11px 1px rgba(0, 0, 0, 0.75);
+          box-shadow: 0px 0px 11px 1px rgba(0, 0, 0, 0.75);
+  background: white;
+  margin: 1.5rem;
+  padding: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.order-confirmation__summary {
+  text-align: center;
+}
+
 .main__cart {
   padding: 30px;
   border: 1px solid #b6b6b6;
@@ -196,6 +236,24 @@ img {
           flex-direction: column;
 }
 
+.products__info__productname {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.products__info__qty {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.products__info__sum {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
 .cart {
   margin: 30px;
   display: -ms-grid;
@@ -205,33 +263,6 @@ img {
   -ms-grid-columns: (minmax(140px, 1fr))[auto-fill];
       grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   grid-auto-rows: minmax(140px, 1fr);
-}
-
-.cart__productname {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.cart__qty {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.cart__sum {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .products__info__del {

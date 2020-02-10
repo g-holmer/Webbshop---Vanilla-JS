@@ -1,6 +1,7 @@
 showCart();
 refreshCartList();
 updateCartBtn();
+finishOrder();
 
 function showCart() {
   let getArray = JSON.parse(localStorage.getItem("myObject"));
@@ -8,13 +9,16 @@ function showCart() {
   const cartWindow = document.querySelector(".main__cart");
   const clearBtn = document.createElement("button");
   const preDiv = document.querySelector(".products__info");
-  
+
   clearBtn.textContent = "Töm Varukorg";
-  cartWindow.insertBefore(clearBtn, preDiv)
+  cartWindow.insertBefore(clearBtn, preDiv);
   clearBtn.addEventListener("click", function() {
     localStorage.clear();
     preDiv.innerHTML = "";
-    updateCartBtn()
+    updateCartBtn();
+
+    const h3 = document.querySelector(".main__cart__finishproduct__h3");
+    h3.textContent = "";
     if (getArray === null) return;
     getArray.pop();
     getArray.shift();
@@ -43,19 +47,18 @@ function createCartList() {
       let idArray = [];
       if (localStorage.getItem("product_ids") === null) {
         id += 1;
-        idArray.push(id)
+        idArray.push(id);
         localStorage.setItem("product_ids", JSON.stringify(idArray));
       } else {
         id += 1;
         idArray = JSON.parse(localStorage.getItem("product_ids"));
-        idArray.push(id)
+        idArray.push(id);
         localStorage.setItem("product_ids", JSON.stringify(idArray));
       }
-      
+
       let getIdArray = JSON.parse(localStorage.getItem("product_ids"));
       for (let i = 0; i < getIdArray.length; i++) {
-        var objId = getIdArray.length -1;
-        
+        var objId = getIdArray.length - 1;
       }
       const myObject = {
         id: objId,
@@ -77,7 +80,7 @@ function createCartList() {
       }
       getArray = JSON.parse(localStorage.getItem("myObject"));
       const h3 = document.querySelector(".main__cart__finishproduct__h3");
-      h3.textContent = 'Totalsumma: ' + sum(getArray);
+      h3.textContent = "Totalsumma: " + sum(getArray);
       //ADD NUMBER TO CART BUTTON
       const cartButton = document.querySelector(".cart__btn__num-bg");
       cartButton.style.display = "flex";
@@ -236,36 +239,43 @@ function deleteItemsFromCart(getArray) {
   delBtns.forEach(delBtn => {
     delBtn.addEventListener("click", function(evt) {
       var index = getArray.findIndex(function(prod) {
-        return prod.id == delBtn.parentElement.parentElement.id
+        return prod.id == delBtn.parentElement.parentElement.id;
       });
-      
+
       getArray.splice(index, 1);
       delBtn.parentElement.parentElement.remove();
       localStorage.setItem("myObject", JSON.stringify(getArray));
 
       const h3 = document.querySelector(".main__cart__finishproduct__h3");
-      h3.textContent = 'Totalsumma: ' + sum(getArray);
+      h3.textContent = "Totalsumma: " + sum(getArray);
       updateCartBtn();
     });
   });
 }
 function sum(getArray) {
-  let sum = 0
+  let sum = 0;
   for (let i = 0; i < getArray.length; i++) {
-      sum += + getArray[i].price * getArray[i].qty
+    sum += +getArray[i].price * getArray[i].qty;
   }
-  return sum
+  return sum;
 }
 function updateCartBtn() {
   let getArray = JSON.parse(localStorage.getItem("myObject"));
   const cartButton = document.querySelector(".cart__btn__num-bg");
-  
-  if(getArray === null || getArray.length === 0){
-    cartButton.textContent = ''
+
+  if (getArray === null || getArray.length === 0) {
+    cartButton.textContent = "";
     cartButton.style.display = "none";
-  }
-  else {
+  } else {
     cartButton.style.display = "flex";
     cartButton.textContent = getArray.length;
   }
+}
+function finishOrder() {
+  let getArray = JSON.parse(localStorage.getItem("myObject"));
+  const orderBtn = document.querySelector(".main__cart__finishproduct__btn");
+  orderBtn.addEventListener("click", function() {
+    // Simulate a mouse click:
+    window.location.href = "order.html";
+  });
 }
