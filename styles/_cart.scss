@@ -27,11 +27,17 @@
     align-self: center;
   }
   &__qty {
-    align-self: center;
+   align-self: center;
+   display: flex;
+   flex-direction: row;
   }
   &__sum {
     align-self: center;
   }
+}
+.products__info__qty__output {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .cart {
   margin: 30px;

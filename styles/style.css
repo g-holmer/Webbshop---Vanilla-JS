@@ -24,7 +24,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   place-content: center center;
-  background: url("https://cdn.onlinewebfonts.com/svg/img_170793.png") no-repeat center center;
+  background: url("/varkrg/styles/images/cart.png") no-repeat center center;
   background-size: cover;
   cursor: pointer;
   width: 30px;
@@ -244,14 +244,25 @@ img {
 
 .products__info__qty {
   -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
       align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .products__info__sum {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+}
+
+.products__info__qty__output {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .cart {
