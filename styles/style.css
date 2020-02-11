@@ -24,7 +24,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   place-content: center center;
-  background: url("/varkrg/styles/images/cart.png") no-repeat center center;
+  background: url("images/cart.png") no-repeat center center;
   background-size: cover;
   cursor: pointer;
   width: 30px;
