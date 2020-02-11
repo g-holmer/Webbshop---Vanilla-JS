@@ -8,36 +8,36 @@ function createOrderStructure(getArray) {
     let prod = document.querySelector(".confirmation__items");
     let product = document.createElement("div");
     //main product info cart
-    product.className = "products__info product-" + getArray[i].id;
+    product.className = "confirmation__info product-" + getArray[i].id;
     product.id = getArray[i].id;
     prod.appendChild(product);
 
     const infoImgContainer = document.createElement("div");
-    infoImgContainer.className = "products__info__img";
+    infoImgContainer.className = "confirmation__info__img";
     product.appendChild(infoImgContainer);
     const infoImg = document.createElement("img");
     infoImgContainer.appendChild(infoImg);
     infoImg.className = "product_info_image";
     //info product name
     const infoProductName = document.createElement("div");
-    infoProductName.className = "products__info__productname";
+    infoProductName.className = "confirmation__info__productname";
     product.appendChild(infoProductName);
     //info sum
     const infoSum = document.createElement("div");
-    infoSum.className = "products__info__sum";
+    infoSum.className = "confirmation__info__sum";
     product.appendChild(infoSum);
     //info qty
     const infoQty = document.createElement("div");
-    infoQty.className = "products__info__qty";
+    infoQty.className = "confirmation__info__qty";
     product.appendChild(infoQty);
     const outputQty = document.createElement("span");
     infoQty.appendChild(outputQty);
-    outputQty.className = "products__info__qty__output";
+    outputQty.className = "confirmation__info__qty__output";
   }
-  const infoNameDiv = document.querySelectorAll(".products__info__productname");
+  const infoNameDiv = document.querySelectorAll(".confirmation__info__productname");
   const infoImageDiv = document.querySelectorAll(".product_info_image");
-  const infoPriceDiv = document.querySelectorAll(".products__info__sum");
-  const infoQty = document.querySelectorAll(".products__info__qty__output");
+  const infoPriceDiv = document.querySelectorAll(".confirmation__info__sum");
+  const infoQty = document.querySelectorAll(".confirmation__info__qty__output");
 
   for (let i = 0; i < getArray.length; i++) {
     infoNameDiv[i].textContent = getArray[i].name;
