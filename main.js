@@ -107,7 +107,8 @@ function fillHtmlStructure(prodItems) {
     //FILL PRICES
 
     for (let i = 0; i < priceDiv.length; i++) {
-      priceDiv[i].textContent = prodItems[i].price;
+      let PRICE_CURRENCY = ' kr';
+      priceDiv[i].textContent = prodItems[i].price + PRICE_CURRENCY;
     }
 
     //FILL IMAGES

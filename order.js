@@ -1,9 +1,13 @@
-finishOrder();
-function finishOrder() {
-  let getArray = JSON.parse(localStorage.getItem("myObject"));
-  createOrderStructure(getArray);
-}
-function createOrderStructure(getArray) {
+createOrderStructure();
+function createOrderStructure() {  
+    let getArray = JSON.parse(localStorage.getItem("myObject"));
+    let dateToday = new Date().toLocaleDateString()
+    const randomID =  Math.random().toString(36).substring(2, 5) + Math.random().toString(36).substring(2, 5);
+    const date = document.querySelector('.order-confirmation__summary__date')
+    const randomString = document.querySelector('.order-confirmation__h3')
+    date.textContent = dateToday;
+    randomString.textContent = 'Order: #' + randomID.toUpperCase()
+    console.log(randomID);
   for (let i = 0; i < getArray.length; i++) {
     let prod = document.querySelector(".confirmation__items");
     let product = document.createElement("div");

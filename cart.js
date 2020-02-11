@@ -1,15 +1,13 @@
 showCart();
 refreshCartList();
 updateCartBtn();
-finishOrder();
-
 function showCart() {
+
   let getArray = JSON.parse(localStorage.getItem("myObject"));
   const cartBtn = document.querySelector(".cart__btn");
   const cartWindow = document.querySelector(".main__cart");
   const clearBtn = document.createElement("button");
   const preDiv = document.querySelector(".products__info");
-
   clearBtn.textContent = "Töm Varukorg";
   cartWindow.insertBefore(clearBtn, preDiv);
   clearBtn.addEventListener("click", function() {
@@ -17,12 +15,15 @@ function showCart() {
     preDiv.innerHTML = "";
     updateCartBtn();
 
+    
     const h3 = document.querySelector(".main__cart__finishproduct__h3");
     h3.textContent = "";
     if (getArray === null) return;
     getArray.pop();
     getArray.shift();
   });
+
+
   cartBtn.addEventListener("click", function() {
     if (cartWindow.style.display === "none") {
       cartWindow.style.display = "flex";
@@ -245,8 +246,7 @@ function deleteItemsFromCart(getArray) {
       getArray.splice(index, 1);
       delBtn.parentElement.parentElement.remove();
       localStorage.setItem("myObject", JSON.stringify(getArray));
-
-      const h3 = document.querySelector(".main__cart__finishproduct__h3");
+      
       updateSum(getArray);
       updateCartBtn();
     });
@@ -278,7 +278,8 @@ function changeQty(getArray) {
         getArray[index].qty += 2;
         btn.nextSibling.textContent = getArray[index].qty;
       } else {
-        if (getArray[index].qty > 1) getArray[index].qty -= 1;
+        if (getArray[index].qty > 1) 
+        getArray[index].qty -= 1;
         btn.previousSibling.textContent = getArray[index].qty;
       }
       localStorage.setItem("myObject", JSON.stringify(getArray));
@@ -288,12 +289,20 @@ function changeQty(getArray) {
 }
 function updateSum(getArray) {
   const h3 = document.querySelector(".main__cart__finishproduct__h3");
-  h3.textContent = "Totalsumma: " + sum(getArray);
+  let PRICE_CURRENCY = ' kr';
+  h3.textContent = "Totalsumma: " + sum(getArray) + PRICE_CURRENCY;
+  if(h3.textContent === "Totalsumma: 0 kr") {
+    h3.textContent = ''
+  }
 }
 function sum(getArray) {
   let sum = 0;
+  
+  
   for (let i = 0; i < getArray.length; i++) {
-    sum += +getArray[i].price * getArray[i].qty;
+    var str = getArray[i].price;
+    var res = str.replace(/\D/g, "");
+    sum += +res * getArray[i].qty;
   }
   return sum;
 }
