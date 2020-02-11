@@ -45,4 +45,5 @@ function createOrderStructure(getArray) {
     infoPriceDiv[i].textContent = getArray[i].price;
     infoQty[i].textContent = getArray[i].qty;
   }
+  updateSum(getArray)
 }
