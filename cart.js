@@ -1,7 +1,9 @@
 showCart();
 refreshCartList();
 updateCartBtn();
-finishOrder();
+
+
+
 function showCart() {
   let getArray = JSON.parse(localStorage.getItem("myObject"));
   const cartBtn = document.querySelector(".cart__btn");
@@ -262,18 +264,6 @@ function updateCartBtn() {
     cartButton.textContent = getArray.length;
   }
 }
-function finishOrder() {
-  let getArray = JSON.parse(localStorage.getItem("myObject"));
-  const orderBtn = document.querySelector(".main__cart__finishproduct__btn");
-  orderBtn.addEventListener("click", function() {
-    createOrderStructure()
-    window.location.href = "order.html";
-  });
-}
-function createOrderStructure() {
-
-  
-}
 function changeQty(getArray) {
   const qtyBtns = document.querySelectorAll(".products__info__qty__btn");
 
@@ -307,4 +297,11 @@ function sum(getArray) {
     sum += +getArray[i].price * getArray[i].qty;
   }
   return sum;
+}
+function finishOrder() {
+  let getArray = JSON.parse(localStorage.getItem("myObject"));
+  const orderBtn = document.querySelector(".main__cart__finishproduct__btn");
+  orderBtn.addEventListener("click", function() {
+    window.location.href = "order.html";
+  });
 }
