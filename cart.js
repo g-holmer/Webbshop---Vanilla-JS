@@ -36,10 +36,8 @@ function createCartList() {
   let id = 0;
   buttons.forEach(button => {
     button.addEventListener("click", function(evt) {
-      const getName =
-        button.parentElement.previousSibling.firstChild.firstChild.textContent;
-      const getImg =
-        button.parentElement.parentElement.previousSibling.firstChild.src;
+      const getName = button.parentElement.previousSibling.firstChild.firstChild.textContent;
+      const getImg = button.parentElement.parentElement.previousSibling.firstChild.src;
       const getPrice = button.previousSibling.firstChild.textContent;
       const getQty = button.previousSibling.previousSibling.firstChild.value;
 
@@ -79,6 +77,7 @@ function createCartList() {
       }
       getArray = JSON.parse(localStorage.getItem("myObject"));
       updateSum(getArray);
+
       //ADD NUMBER TO CART BUTTON
       const cartButton = document.querySelector(".cart__btn__num-bg");
       cartButton.style.display = "flex";
@@ -145,17 +144,6 @@ function writeCartList() {
   const span2 = document.createElement("span");
   delBtn.appendChild(span2);
 
-  /*    //total
-    const prodFinish = document.createElement('div');
-    const spanTotalSum = document.createElement('span');
-    const toCartBtn = document.createElement('button');
-    spanTotalSum.textContent = 'Totalsumma:';
-    toCartBtn.textContent = 'To cart';
-    prodFinish.appendChild(spanTotalSum)
-    prodFinish.appendChild(toCartBtn)
-    prodFinish.className = 'products__finish';
-    productInfo.appendChild(prodFinish)
-  */
   fillCartList(getArray, fromButton);
 }
 function refreshCartList() {
@@ -212,17 +200,6 @@ function refreshCartList() {
     delBtn.appendChild(span2);
   }
 
-  /*    //total
-    const prodFinish = document.createElement('div');
-    const spanTotalSum = document.createElement('span');
-    const toCartBtn = document.createElement('button');
-    spanTotalSum.textContent = 'Totalsumma:';
-    toCartBtn.textContent = 'To cart';
-    prodFinish.appendChild(spanTotalSum)
-    prodFinish.appendChild(toCartBtn)
-    prodFinish.className = 'products__finish';
-    productInfo.appendChild(prodFinish)
-  */
   fillCartList(getArray, fromButton);
 }
 
@@ -232,10 +209,7 @@ function fillCartList(getArray, fromButton) {
   const infoPriceDiv = document.querySelectorAll(".products__info__sum");
   const infoQty = document.querySelectorAll(".products__info__qty__output");
 
-  //HÄR SKA DE HÄNDA NÅGOT
-
   //FILL NAMES
-
   if (fromButton) {
     for (let index = 0; index < getArray.length; index++) {
       const lastItem = getArray.length - 1;
@@ -255,6 +229,7 @@ function fillCartList(getArray, fromButton) {
   }
   deleteItemsFromCart(getArray);
   changeQty(getArray);
+  updateSum(getArray)
 }
 
 function deleteItemsFromCart(getArray) {
@@ -291,12 +266,17 @@ function finishOrder() {
   let getArray = JSON.parse(localStorage.getItem("myObject"));
   const orderBtn = document.querySelector(".main__cart__finishproduct__btn");
   orderBtn.addEventListener("click", function() {
+    createOrderStructure()
     window.location.href = "order.html";
   });
 }
+function createOrderStructure() {
+
+  
+}
 function changeQty(getArray) {
   const qtyBtns = document.querySelectorAll(".products__info__qty__btn");
-  const qtyOutput = document.querySelector(".products__info__qty__output");
+
   qtyBtns.forEach(btn => {
     btn.addEventListener("click", function() {
       var index = getArray.findIndex(function(prod) {
@@ -308,7 +288,8 @@ function changeQty(getArray) {
         getArray[index].qty += 2;
         btn.nextSibling.textContent = getArray[index].qty;
       } else {
-        if (getArray[index].qty > 1) getArray[index].qty -= 1;
+        if (getArray[index].qty > 1) 
+        getArray[index].qty -= 1;
         btn.previousSibling.textContent = getArray[index].qty;
       }
       localStorage.setItem("myObject", JSON.stringify(getArray));
