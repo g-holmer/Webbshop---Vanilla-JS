@@ -1,8 +1,7 @@
 showCart();
 refreshCartList();
 updateCartBtn();
-
-
+finishOrder();
 
 function showCart() {
   let getArray = JSON.parse(localStorage.getItem("myObject"));
@@ -10,7 +9,7 @@ function showCart() {
   const cartWindow = document.querySelector(".main__cart");
   const clearBtn = document.createElement("button");
   const preDiv = document.querySelector(".products__info");
-
+  
   clearBtn.textContent = "Töm Varukorg";
   cartWindow.insertBefore(clearBtn, preDiv);
   clearBtn.addEventListener("click", function() {
@@ -32,7 +31,6 @@ function showCart() {
     }
   });
 }
-
 function createCartList() {
   const buttons = document.querySelectorAll(".btn");
   let id = 0;
@@ -303,5 +301,6 @@ function finishOrder() {
   const orderBtn = document.querySelector(".main__cart__finishproduct__btn");
   orderBtn.addEventListener("click", function() {
     window.location.href = "order.html";
+    createOrderStructure(getArray) 
   });
 }
