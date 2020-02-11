@@ -1,14 +1,17 @@
+finishOrder();
+function finishOrder() {
+  let getArray = JSON.parse(localStorage.getItem("myObject"));
+  createOrderStructure(getArray);
+}
 function createOrderStructure(getArray) {
-    const prod = document.querySelector(".confirmation__items");
-    const product = document.createElement("div");
-  
-    for (let i = 0; i < getArray.length; i++) {
-      //main product info cart
-      product.className = "product-" + getArray[i].id;
-      product.id = getArray[i].id;
-      prod.appendChild(product);
-    }
-  
+  for (let i = 0; i < getArray.length; i++) {
+    let prod = document.querySelector(".confirmation__items");
+    let product = document.createElement("div");
+    //main product info cart
+    product.className = "products__info product-" + getArray[i].id;
+    product.id = getArray[i].id;
+    prod.appendChild(product);
+
     const infoImgContainer = document.createElement("div");
     infoImgContainer.className = "products__info__img";
     product.appendChild(infoImgContainer);
@@ -27,4 +30,19 @@ function createOrderStructure(getArray) {
     const infoQty = document.createElement("div");
     infoQty.className = "products__info__qty";
     product.appendChild(infoQty);
+    const outputQty = document.createElement("span");
+    infoQty.appendChild(outputQty);
+    outputQty.className = "products__info__qty__output";
   }
+  const infoNameDiv = document.querySelectorAll(".products__info__productname");
+  const infoImageDiv = document.querySelectorAll(".product_info_image");
+  const infoPriceDiv = document.querySelectorAll(".products__info__sum");
+  const infoQty = document.querySelectorAll(".products__info__qty__output");
+
+  for (let i = 0; i < getArray.length; i++) {
+    infoNameDiv[i].textContent = getArray[i].name;
+    infoImageDiv[i].src = getArray[i].img;
+    infoPriceDiv[i].textContent = getArray[i].price;
+    infoQty[i].textContent = getArray[i].qty;
+  }
+}
