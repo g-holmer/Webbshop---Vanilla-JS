@@ -7,7 +7,6 @@ function createOrderStructure() {
     const randomString = document.querySelector('.order-confirmation__h3')
     date.textContent = dateToday;
     randomString.textContent = 'Order: #' + randomID.toUpperCase()
-    console.log(randomID);
   for (let i = 0; i < getArray.length; i++) {
     let prod = document.querySelector(".confirmation__items");
     let product = document.createElement("div");
