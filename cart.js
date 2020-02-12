@@ -1,6 +1,7 @@
 showCart();
 refreshCartList();
 updateCartBtn();
+
 function showCart() {
 
   let getArray = JSON.parse(localStorage.getItem("myObject"));
@@ -306,3 +307,10 @@ function sum(getArray) {
   }
   return sum;
 }
+function continueOrder() {
+  const contBtn = document.querySelector('.main__cart__finishproduct__btn')
+  let getArray = JSON.parse(localStorage.getItem("myObject"));
+  if(getArray.length !== 0) {
+    contBtn.href = 'order.html';
+  }
+  }
