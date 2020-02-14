@@ -87,7 +87,7 @@ function createHtmlStructure(prodItems) {
     //button
     const btn = document.createElement("button");
     btn.className = "btn";
-    btn.textContent = "Add to cart";
+    btn.textContent = "Lägg i varukorg";
     prodInfoWrapperBottom.appendChild(btn);
   }
 }

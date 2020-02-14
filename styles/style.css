@@ -98,6 +98,7 @@ img {
 }
 
 .products .btn {
+  min-width: 90px;
   border-radius: 12px;
   padding: 4px;
 }
