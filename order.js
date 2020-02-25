@@ -9,34 +9,22 @@ function createOrderStructure() {
     randomString.textContent = 'Order: #' + randomID.toUpperCase()
   for (let i = 0; i < getArray.length; i++) {
     let prod = document.querySelector(".confirmation__items");
-    let product = document.createElement("div");
-    //main product info cart
-    product.className = "confirmation__info product-" + getArray[i].id;
-    product.id = getArray[i].id;
-    prod.appendChild(product);
-
-    const infoImgContainer = document.createElement("div");
-    infoImgContainer.className = "confirmation__info__img";
-    product.appendChild(infoImgContainer);
-    const infoImg = document.createElement("img");
-    infoImgContainer.appendChild(infoImg);
-    infoImg.className = "product_info_image";
-    //info product name
-    const infoProductName = document.createElement("div");
-    infoProductName.className = "confirmation__info__productname";
-    product.appendChild(infoProductName);
-    //info sum
-    const infoSum = document.createElement("div");
-    infoSum.className = "confirmation__info__sum";
-    product.appendChild(infoSum);
-    //info qty
-    const infoQty = document.createElement("div");
-    infoQty.className = "confirmation__info__qty";
-    product.appendChild(infoQty);
-    const outputQty = document.createElement("span");
-    infoQty.appendChild(outputQty);
-    outputQty.className = "confirmation__info__qty__output";
+    prod.innerHTML += `<div class="confirmation__info product-12" id="12">
+    <div class="confirmation__info__img">
+      <img
+        class="product_info_image"
+        src=""
+      />
+    </div>
+    <div class="confirmation__info__productname"></div>
+    <div class="confirmation__info__sum"></div>
+    <div class="confirmation__info__qty">
+      <span class="confirmation__info__qty__output"></span>
+    </div>
+  </div>`;
+  
   }
+
   const infoNameDiv = document.querySelectorAll(".confirmation__info__productname");
   const infoImageDiv = document.querySelectorAll(".product_info_image");
   const infoPriceDiv = document.querySelectorAll(".confirmation__info__sum");

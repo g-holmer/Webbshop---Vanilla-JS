@@ -11,19 +11,24 @@
 
 <body>
   <header class="main__header">
-    <h1>VINYLSHOPPEN</h1>
+    <div class="main__header__top">
+    <h1 class="head__title">VINYLSHOPPEN</h1>
+  </div>
+  <div id="myModal" class="modal"></div>
+  <div class="main__header__bottom">
     <nav class="nav">
       <div class="cart__btn">
         <span class="cart__btn__num-bg">
           <!-- text content ändrar nummer -->
         </span></div>
     </nav>
+  </div>
   </header>
   <div class="main__cart">
   <h2 class="main__cart__h2">Varukorg</h2>
   <div class="products__info"></div>
   <div class="main__cart__finishproduct"><h3 class="main__cart__finishproduct__h3"></h3></div>
-  <a class="main__cart__finishproduct__btn" onclick="continueOrder()" href=""><button>Slutför beställning</button></a>
+  <a class="main__cart__finishproduct__href" onclick="continueOrder()" href=""><button class="main__cart__finishproduct__btn">Slutför beställning</button></a>
   </div>
   <div class="products__wrapper"></div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
